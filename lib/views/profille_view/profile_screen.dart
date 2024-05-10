@@ -16,12 +16,18 @@ class ProfileDetails extends StatefulWidget {
 }
 
 class _ProfileDetailsState extends State<ProfileDetails> {
+  //  static const myPic = 'assets/images/my_pic.jpeg';
+  //   static const facebook = 'assets/images/face.png';
+  //   static const gitHub = 'assets/images/git.png';
+  //   static const insta = 'assets/images/in.png';
+  //   static const twitter = 'assets/images/twit.png';
   final socialButtons = <String>[
-     AppAssets.myPic,
-    // AppAssets.twitter,
-    // AppAssets.linkedIn,
-    // AppAssets.insta,
-    // AppAssets.github,
+     AppAssets.linkedIn,
+     AppAssets.facebook,
+     AppAssets.insta,
+     AppAssets.gitHub,
+     AppAssets.twitter,
+
   ];
 
   var socialBI;
@@ -103,11 +109,12 @@ class _ProfileDetailsState extends State<ProfileDetails> {
                 pause: const Duration(milliseconds: 1000),
                 displayFullTextOnTap: true,
                 stopPauseOnTap: true,
+                repeatForever: true,
               )
             ],
           ),
         ),
-        SizedBox(height: 15.0),
+        const SizedBox(height: 15.0),
         FadeInDown(
           duration: const Duration(milliseconds: 1600),
           child: Text(
@@ -118,37 +125,34 @@ class _ProfileDetailsState extends State<ProfileDetails> {
           ),
         ),
         SizedBox(height: 22.0),
-        FadeInUp(
-          duration: const Duration(milliseconds: 1600),
-          child: SizedBox(
-            height: 48,
-            child: ListView.separated(
-              itemCount: socialButtons.length,
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              separatorBuilder: (context, child) =>
-                  SizedBox(width: 8.0),
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {},
-                  onHover: (value) {
-                    setState(() {
-                      if (value) {
-                        socialBI = index;
-                      } else {
-                        socialBI = null;
-                      }
-                    });
-                  },
-                  borderRadius: BorderRadius.circular(50.0),
-                  hoverColor: AppColors.blackClr,
-                  splashColor: AppColors.whiteClr,
-                  child: buildSocialButton(
-                      asset: socialButtons[index],
-                      hover: socialBI == index ? true : false),
-                );
-              },
-            ),
+        SizedBox(
+          height: 48,
+          child: ListView.separated(
+            itemCount: socialButtons.length,
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            separatorBuilder: (context, child) =>
+                const SizedBox(width: 8.0),
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {},
+                onHover: (value) {
+                  setState(() {
+                    if (value) {
+                      socialBI = index;
+                    } else {
+                      socialBI = null;
+                    }
+                  });
+                },
+                borderRadius: BorderRadius.circular(50.0),
+                hoverColor: AppColors.blueClr,
+                splashColor: AppColors.blueClr,
+                child: buildSocialButton(
+                    asset: socialButtons[index],
+                    hover: socialBI == index ? true : false),
+              );
+            },
           ),
         ),
         SizedBox(height: 18.0),
@@ -166,13 +170,12 @@ class _ProfileDetailsState extends State<ProfileDetails> {
       width: 45,
       height: 45,
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.whiteClr, width: 2.0),
-        color: AppColors.blackClr,
+        border: Border.all(color: AppColors.blueClr, width: 2.0),
+        color: AppColors.whiteClr,
         shape: BoxShape.circle,
       ),
       padding: const EdgeInsets.all(6),
       child: Image.asset(
-
         asset,
         // color: hover ? AppColors.whiteClr : Colors.transparent,
         // fit: BoxFit.fill,

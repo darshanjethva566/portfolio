@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/utils/app_colors.dart';
 import 'package:my_portfolio/utils/custome_textstyle.dart';
+import 'package:my_portfolio/views/about_us_screen/about_us_screen.dart';
 import 'package:my_portfolio/views/profille_view/profile_screen.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -34,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
 
   final screensList = const <Widget>[
     ProfileDetails(),
-    SizedBox(),
+    AboutUs(),
     SizedBox(),
     SizedBox(),
     SizedBox(),
