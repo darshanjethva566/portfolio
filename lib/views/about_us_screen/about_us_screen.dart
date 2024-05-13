@@ -22,14 +22,14 @@ class AboutUs extends StatelessWidget {
 
         ],
       ),
-    ), desktop: desktopTablet(), tablet:  desktopTablet(), bgcolor: Colors.purple.withOpacity(0.3));
+    ), desktop: desktopTablet(), tablet:  desktopTablet(), bgcolor: Colors.blue.withOpacity(0.3));
   }
 
   Image myImage() {
     return Image.asset( AppAssets.myPic,
           height: 400,
           width: 400,
-          fit: BoxFit.fill,);
+          fit: BoxFit.contain,);
   }
 
    desktopTablet() {
